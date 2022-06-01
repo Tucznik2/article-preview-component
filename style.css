@@ -1,0 +1,210 @@
+:root {
+  --very-dark-grayish-blue: hsl(217, 19%, 35%);
+  --desaturated-dark-blue: hsl(214, 17%, 51%);
+  --grayish-blue: hsl(212, 23%, 69%);
+  --light-grayish-blue: hsl(210, 46%, 95%);
+}
+* {
+  font-family: "Manrope", sans-serif;
+  font-weight: 500;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 62, 5%;
+}
+body {
+  font-size: 1.6rem;
+  background-color: var(--light-grayish-blue);
+}
+.wrapper {
+  display: grid;
+  place-items: center;
+  min-height: 96vh;
+}
+.container {
+  background-color: #fff;
+  width: 90%;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 1rem;
+  max-width: 400px;
+  max-height: 600px;
+  box-shadow: 0px 30px 100px -61px rgba(66, 68, 90, 1);
+}
+.card-img {
+  background: url("images/drawers.jpg") no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 40%;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+.post-content-container {
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: center;
+}
+.card-content {
+  padding: 2rem 2rem 0 2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 75%;
+}
+.copy-text {
+  font-size: 1.2rem;
+  color: var(--very-dark-grayish-blue);
+  font-weight: 700;
+}
+.card-text {
+  font-size: 0.9rem;
+  color: var(--desaturated-dark-blue);
+}
+.post-author {
+  width: 100%;
+  font-size: 0.9rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  padding: 1rem 2rem;
+  height: 25%;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+.author-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.author-avatar {
+  background: url("images/avatar-michelle.jpg") no-repeat;
+  background-position: center;
+  background-size: contain;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  margin-right: 1rem;
+}
+.author-name {
+  color: var(--very-dark-grayish-blue);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+.post-date {
+  color: var(--grayish-blue);
+  font-size: 0.8rem;
+}
+.share-to-button {
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  background-color: var(--light-grayish-blue);
+  transition: 0.5s;
+  cursor: pointer;
+}
+/* TOOLTIP styling */
+.active {
+  background-color: var(--grayish-blue);
+  color: #fff;
+  transition: 0.5s;
+}
+.active .arrow {
+  filter: brightness(100);
+  transition: 0.5s;
+}
+.tooltip {
+  width: 60%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  display: none;
+  opacity: 0;
+  left: 0;
+}
+.tooltip-text {
+  color: var(--grayish-blue);
+  font-size: 0.8rem;
+  letter-spacing: 0.2rem;
+  font-weight: 700;
+}
+.icon {
+  display: grid;
+  place-content: center;
+}
+.show {
+  display: flex;
+  transition: opacity 0.5s ease-in-out;
+  opacity: 1 !important;
+}
+.social-active {
+  background-color: var(--very-dark-grayish-blue);
+}
+.author-disabled {
+  visibility: hidden;
+}
+.social-active > .tooltip {
+  margin-left: 0.8rem;
+}
+@media screen and (min-width: 1000px) {
+  .container {
+    flex-direction: row;
+    max-width: 800px;
+    max-height: 300px;
+  }
+  .card-img {
+    height: 100%;
+    width: 40%;
+    border-top-right-radius: unset;
+    border-bottom-left-radius: 1rem;
+  }
+  .post-content-container {
+    width: 60%;
+    height: 100%;
+  }
+  .copy-text {
+    font-size: 1.3rem;
+  }
+  .active {
+    background-color: var(--desaturated-dark-blue);
+  }
+  .tooltip {
+    position: absolute;
+    width: 14rem;
+    top: -70%;
+    right: -12%;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    height: unset;
+    box-shadow: 0px 20px 80px -10px var(--desaturated-dark-blue);
+    left: unset;
+  }
+  .tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -0.5rem;
+    border-width: 0.8rem;
+    border-style: solid;
+    border-color: var(--very-dark-grayish-blue) transparent transparent
+      transparent;
+  }
+  .post-author {
+    border-radius: unset;
+  }
+}
